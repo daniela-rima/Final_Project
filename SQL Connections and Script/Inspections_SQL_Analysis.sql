@@ -150,3 +150,32 @@ SELECT *
 FROM violation_analysis;
 
 RENAME TABLE violation_analysis TO establishment_analysis;
+
+-- Join inspectiosn and inspections raw tables
+USE inspections;
+
+DROP TABLE IF EXISTS violation_cat_establishment;
+
+CREATE TABLE violation_cat_establishment (
+	establishment_id INT,
+    establishment_name VARCHAR(255),
+    violation_category VARCHAR(255),
+    violation_code VARCHAR(255),
+    violation_description VARCHAR(3000),
+    score INT);
+    
+INSERT INTO violation_cat_establishment (establishment_id, establishment_name, violation_category, violation_code, violation_description, score)
+SELECT ir.establishment_id, i.establishment_name, i.violation_category, i.violation_code, ir.violation_description, i.score
+FROM inspections i
+JOIN inspections_raw ir
+ON i.establishment_name = ir.establishment_name
+AND i.longitude = ir.longitude
+AND i.latitude = ir.latitude
+AND i.violation_code = ir.violation_code
+AND i.borough = ir.borough
+AND i.score = ir.score
+AND i.inspection_year = ir.inspection_year
+AND i.cuisine_description = ir.cuisine_description;
+
+SELECT *
+FROM violation_cat_establishment;
