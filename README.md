@@ -7,4 +7,4 @@ Case Study 2: Data Analytics End to End Project
 
 [Violation Codes with Descriptions](https://www.nyc.gov/assets/doh/downloads/pdf/rii/ri-violation-penalty.pdf)
 
-[Visualizations with Tableau](https://public.tableau.com/app/profile/daniela.rivera4024/viz/RestaurantInspectionsAnalysis/ViolationCodes)
+[Visualizations with Tableau](https://public.tableau.com/views/RestaurantInspectionsAnalysis/HeatMapwithInspectionsbyBorough?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link)
